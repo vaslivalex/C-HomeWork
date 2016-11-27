@@ -16,12 +16,20 @@ namespace QuickSort
             int i = 0;
 
             //Заполняем массив
-            while (i < sizeArr)
+
+            //while (i < sizeArr)
+            //{
+            //    Console.Write("Введите элемент массива: ");
+            //    array[i] = Convert.ToInt32(Console.ReadLine());
+            //    i++;
+            //}
+
+            for (i = 0; i < sizeArr; i++)
             {
-                Console.Write("Введите элемент массива: ");
-                array[i] = Convert.ToInt32(Console.ReadLine());
-                i++;
+                Console.Write("{0}-е число: ", i + 1);
+                array[i] = Int32.Parse(Console.ReadLine());
             }
+
             //Выводим массив на экран
             Console.WriteLine("Вы ввели следующий массив чисел: ");
             for (i = 0; i < sizeArr; i++)
@@ -40,32 +48,34 @@ namespace QuickSort
             Console.WriteLine();
         }
 
-        public static void QuickSort(int[] array, int x, int y)
+        public static void QuickSort(int[] array, int firstNum, int lastNum)
         {
-            int mid = array[x + (y - y) / 2];
-            int a = x;
-            int b = y;
+            int mid = array[firstNum + (lastNum - lastNum) / 2];
+            int i = firstNum;
+            int j = lastNum;
 
-            while (a <= b)
+            while (i <= j)
             {
-                while (array[a] < mid)
-                    a++;
-                while (array[b] > mid)
-                    b--;
-                if (a <= b)
+                while (array[i] < mid)
+                    i++;
+                while (array[j] > mid)
+                    j--;
+                if (i <= j)
                 {
-                    int temp = array[a];
-                    array[a] = array[b];
-                    array[b] = temp;
-                    a++;
-                    b--;
+                    int temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                    i++;
+                    j--;
                 }
             }
-            if (a < y)
-                QuickSort(array, a, y);
+            if (i < lastNum)
+                QuickSort(array, i, lastNum);
+            else { }
 
-            if (x < b)
-                QuickSort(array, x, b);
+            if (firstNum < j)
+                QuickSort(array, firstNum, j);
+            else { }
         }
     }
 }
