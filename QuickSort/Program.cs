@@ -68,6 +68,7 @@ namespace QuickSort
                     i++;
                     j--;
                 }
+                else { }
             }
             if (i < lastNum)
                 QuickSort(array, i, lastNum);
