@@ -26,7 +26,7 @@ namespace QuickSort
 
             for (i = 0; i < sizeArr; i++)
             {
-                Console.Write("{0}-е число: ", i + 1);
+                Console.Write("{0}-е число: ", i++);
                 array[i] = Int32.Parse(Console.ReadLine());
             }
 
