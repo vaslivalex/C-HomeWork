@@ -26,14 +26,16 @@ namespace QuickSort
 
             for (i = 0; i < sizeArr; i++)
             {
-                Console.Write("{0}-е число: ", i++);
+                Console.Write("{0}-е число: ", i);
                 array[i] = Int32.Parse(Console.ReadLine());
             }
 
             //Выводим массив на экран
             Console.WriteLine("Вы ввели следующий массив чисел: ");
             for (i = 0; i < sizeArr; i++)
+            {
                 Console.Write(array[i] + " ");
+            }
             Console.Write(' ');
 
             QuickSort(array, 0, sizeArr - 1);
@@ -47,7 +49,6 @@ namespace QuickSort
             }
             Console.WriteLine();
         }
-
         public static void QuickSort(int[] array, int firstNum, int lastNum)
         {
             int mid = array[firstNum + (lastNum - lastNum) / 2];
@@ -57,9 +58,13 @@ namespace QuickSort
             while (i <= j)
             {
                 while (array[i] < mid)
+                {
                     i++;
+                }
                 while (array[j] > mid)
+                {
                     j--;
+                }
                 if (i <= j)
                 {
                     int temp = array[i];
@@ -71,11 +76,15 @@ namespace QuickSort
                 else { }
             }
             if (i < lastNum)
+            {
                 QuickSort(array, i, lastNum);
+            }
             else { }
 
             if (firstNum < j)
+            {
                 QuickSort(array, firstNum, j);
+            }
             else { }
         }
     }
